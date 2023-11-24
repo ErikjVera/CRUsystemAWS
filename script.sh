@@ -30,4 +30,3 @@ subnetIdSupp=$(aws ec2 create-subnet --vpc-id $vpcId --cidr-block 192.168.3.0/22
 # Crear una instancia EC2 para el Departamento de Soporte
 aws ec2 run-instances --image-id ami-0230bd60aa48260c6 --subnet-id $subnetIdSupp --count 1 --instance-type t2.micro --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=ec2-Soporte}]'
 
-ami-0230bd60aa48260c6
