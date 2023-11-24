@@ -1,6 +1,6 @@
 #!/bin/bash
 # Función para esperar hasta que las instancias estén en estado "running"
-wait_until_running() {
+wait_until_running(){
     local instance_ids=($@)
     aws ec2 wait instance-running --instance-ids ${instance_ids[@]}
     }
