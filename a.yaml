@@ -16,8 +16,8 @@ jobs:
     - name: Configurar AWS CLI
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        aws-access-key-id: ASIAZZPBRCFWSMMGZZPE
-        aws-secret-access-key: eKUtP9+OWxRcYaEj5h+PJRuHiKFCpbdEm0CKP+mD
+      //  
+      //
         aws-region: "us-east-1"  
     - name: Subir a S3
       run: aws s3 sync . s3://erikmiles
