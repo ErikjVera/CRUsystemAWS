@@ -1,8 +1,9 @@
+#!/bin/bash
 # Función para esperar hasta que las instancias estén en estado "running"
 wait_until_running() {
     local instance_ids=($@)
     aws ec2 wait instance-running --instance-ids ${instance_ids[@]}
-}
+    }
 
 # Crear una VPC
 vpcId=$(aws ec2 create-vpc --cidr-block 192.168.0.0/22 --query 'Vpc.VpcId' --output text)
