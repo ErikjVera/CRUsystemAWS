@@ -11,7 +11,7 @@ vpcId=$(aws ec2 create-vpc --cidr-block 192.168.0.0/22 --query 'Vpc.VpcId' --out
 # Crear subred para el Departamento de Ingeniería
 subnetIdEng=$(aws ec2 create-subnet --vpc-id $vpcId --cidr-block 192.168.0.0/22 --availability-zone us-east-1a --query 'Subnet.SubnetId' --output text)
 # Crear una instancia EC2 para el Departamento de Ingeniería
-aws ec2 run-instances --image-id ami-xxxxxxxxxxxxxx --subnet-id $subnetIdEng --count 1 --instance-type t2.micro --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=ec2-Ingenieria}]'
+aws ec2 run-instances --image-id ami-0230bd60aa48260c6 --subnet-id $subnetIdEng --count 1 --instance-type t2.micro --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=ec2-Ingenieria}]'
 # Esperar hasta que la instancia esté en estado "running"
 wait_until_running $(aws ec2 describe-instances --filters "Name=tag:Name,Values=ec2-Ingenieria" --query 'Reservations[*].Instances[*].InstanceId' --output text)
 
